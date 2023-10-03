@@ -20,7 +20,7 @@ export const Input: FC<IInputPros> = ({ label, name, placeholder, type = 'text' 
         type={type}
         id={name}
         name={name}
-        placeholder={placeholder ? placeholder : label}
+        placeholder={placeholder && placeholder}
       />
     </div>
   )
