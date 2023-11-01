@@ -39,8 +39,11 @@ export const UserCard: FC<{ user: IUser }> = ({ user }) => {
         </div>
         <img src={images[imageDisplayed]} alt="user-pic" className="w-full h-full object-cover" />
 
-        <div style={{ top: '75%' }} className="absolute h-1/4 inset-0 py-5">
-          <p className="text-white px-2 mb-2">{name}</p>
+        <div style={{ top: '65%' }} className="absolute h-1/4 inset-0 py-5">
+          <p className="text-white text-xl px-2 mb-2">
+            {name} {age}
+          </p>
+          <p className="text-white text-xl px-2 mb-5">{description}</p>
           <ButtonsSet buttons={buttonsConfig} />
         </div>
       </div>
