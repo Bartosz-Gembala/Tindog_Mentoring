@@ -13,9 +13,11 @@ interface IButtonsSetProps {
 
 export const ButtonsSet: FC<IButtonsSetProps> = ({ buttons }) => {
   return (
-    <div className="flex flex-row items-center justify-end gap-5">
-      {buttons.map(({ variant, text }) => (
-        <Button variant={variant}>{text}</Button>
+    <div className="flex flex-row items-center justify-center gap-5">
+      {buttons.map(({ variant, text, onClick }, index) => (
+        <Button key={index + text} onClick={onClick} variant={variant}>
+          {text}
+        </Button>
       ))}
     </div>
   )
