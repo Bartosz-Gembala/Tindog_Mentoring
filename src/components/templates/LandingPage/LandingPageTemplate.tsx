@@ -1,9 +1,7 @@
 import { LandingPageHeader } from '../../organisms/LandingPageHeader/LandingPageHeader'
 import { useState } from 'react'
 import { Modal } from '../../organisms/Modal/Modal'
-import { AuthModalHeader } from '../../molecules/AuthModalHeader/AuthModalHeader'
-import { AuthModalBody } from '../../molecules/AuthModalBody/AuthModalBody'
-
+import { AuthModal } from '../../molecules/AuthModal/AuthModal'
 export const LandingPageTemplate = () => {
   const [isAuthModalVisible, setIsAuthModalVisible] = useState(true)
 
@@ -12,7 +10,11 @@ export const LandingPageTemplate = () => {
 
   return (
     <>
-      {isAuthModalVisible && <Modal onClose={handleCloseModal} header={<AuthModalHeader />} body={<AuthModalBody />} />}
+      {isAuthModalVisible && (
+        <Modal onClose={handleCloseModal}>
+          <AuthModal />
+        </Modal>
+      )}
       <div
         className={`
       h-screen shadow-landing p-9

@@ -11,6 +11,8 @@ export default {
       colors: {
         primary: '#c043c0',
         secondary: '#3498db',
+        background: '#F0EFF4',
+        icon: '#FEFEDF',
       },
       fontFamily: {
         sans: ['Open sans', 'sans'],

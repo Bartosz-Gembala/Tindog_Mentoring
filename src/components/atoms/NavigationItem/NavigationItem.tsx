@@ -1,9 +1,8 @@
 import { FC } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, NavLinkProps } from 'react-router-dom'
 
-interface INavigationItemProps {
+interface INavigationItemProps extends NavLinkProps {
   title: string
-  to: string
 }
 
 export const NavigationItem: FC<INavigationItemProps> = ({ title, to }) => (

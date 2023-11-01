@@ -1,10 +1,7 @@
 import { FC } from 'react'
 
-interface IInputPros {
-  name: string
+interface IInputPros extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string
-  type?: string
-  placeholder?: string
 }
 
 export const Input: FC<IInputPros> = ({ label, name, placeholder, type = 'text' }) => {
