@@ -1,14 +1,23 @@
-import { FC } from 'react'
+import { FC } from "react";
 
 interface IInputPros extends React.InputHTMLAttributes<HTMLInputElement> {
-  label?: string
+  label?: string;
 }
 
-export const Input: FC<IInputPros> = ({ label, name, placeholder, type = 'text' }) => {
+export const Input: FC<IInputPros> = ({
+  label,
+  name,
+  placeholder,
+  type = "text",
+  onChange,
+}) => {
   return (
     <div>
       {label && (
-        <label className="block mb-2 text-lg font-lg text-gray-900 text-center" htmlFor={name}>
+        <label
+          className="block mb-2 text-lg font-lg text-gray-900 text-center"
+          htmlFor={name}
+        >
           {label}
         </label>
       )}
@@ -18,7 +27,8 @@ export const Input: FC<IInputPros> = ({ label, name, placeholder, type = 'text' 
         id={name}
         name={name}
         placeholder={placeholder && placeholder}
+        onChange={onChange && onChange}
       />
     </div>
-  )
-}
+  );
+};
