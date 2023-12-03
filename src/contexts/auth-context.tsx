@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 interface IAuthContext {
   isAuth?: boolean;
+  token?: string | null;
   setNewToken: (token: string | null) => void;
 }
 export const AuthContext = createContext<IAuthContext>({} as IAuthContext);
@@ -26,7 +27,7 @@ export const AuthContextProvider: FC<{ children: ReactNode }> = ({
     setNewToken(savedToken);
   }, []);
 
-  const contextValue = { isAuth, setNewToken };
+  const contextValue = { isAuth, token, setNewToken };
 
   return (
     <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
