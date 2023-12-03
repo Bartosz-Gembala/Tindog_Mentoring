@@ -7,7 +7,6 @@ export const ProtectedRouteWrapper: FC<{ children: ReactNode }> = ({
 }) => {
   const navigate = useNavigate();
   const { isAuth } = useContext(AuthContext);
-  console.log(isAuth);
 
   !isAuth && navigate("/");
   return <>{children}</>;
