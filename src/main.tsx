@@ -4,6 +4,7 @@ import { RouterProvider } from "react-router-dom";
 import { router } from "./router";
 
 import "./index.css";
+import { AuthContextProvider } from "./contexts/auth-context.js";
 
 async function enableMocking() {
   if (import.meta.env.MODE !== "development") {
@@ -18,7 +19,9 @@ async function enableMocking() {
 enableMocking().then(() => {
   ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
-      <RouterProvider router={router} />
+      <AuthContextProvider>
+        <RouterProvider router={router} />
+      </AuthContextProvider>
     </React.StrictMode>
   );
 });
