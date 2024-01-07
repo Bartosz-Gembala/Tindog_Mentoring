@@ -1,6 +1,7 @@
 export interface IUser {
-  name: string
-  age: number
-  description: string
-  gallery: string[]
+  id: number;
+  name: string;
+  age: number;
+  description: string;
+  gallery: string[];
 }

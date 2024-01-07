@@ -7,13 +7,14 @@ import { useHttp } from "../../../hooks/useHttp";
 interface AuthResponse {
   message: string;
   token: string;
+  userName: string;
 }
 export const AuthModal = () => {
   const [isLogging, setIsLogging] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { sendRequest, error, isLoading } = useHttp<AuthResponse>();
   const navigate = useNavigate();
+  const { sendRequest, error, isLoading } = useHttp<AuthResponse>();
 
   const toggleLogging = () => {
     setIsLogging(!isLogging);
@@ -30,6 +31,7 @@ export const AuthModal = () => {
     });
     if (response?.token) {
       localStorage.setItem("token", response.token);
+      localStorage.setItem("userName", response.userName);
       navigate("/tindog");
     }
   };
@@ -65,7 +67,9 @@ export const AuthModal = () => {
             type="password"
           />
         )}
-        <Button type="submit">{!isLogging ? "Register" : "Login"}</Button>
+        <Button variant="primary" type="submit">
+          {!isLogging ? "Register" : "Login"}
+        </Button>
       </form>
       <p className="text-center cursor-pointer my-3" onClick={toggleLogging}>
         {isLogging ? "Don't have an account?" : "Already have an account?"}

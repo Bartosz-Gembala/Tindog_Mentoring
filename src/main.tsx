@@ -4,7 +4,7 @@ import { RouterProvider } from "react-router-dom";
 import { router } from "./router";
 
 import "./index.css";
-import { AuthContextProvider } from "./contexts/auth-context.js";
+import { AuthContextProvider } from "./providers/AuthContextProvider";
 
 async function enableMocking() {
   if (import.meta.env.MODE !== "development") {
