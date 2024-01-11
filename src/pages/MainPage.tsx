@@ -1,4 +1,4 @@
-import { MainPageTemplate } from '../components/templates/LandingPage/MainPageTemplate'
+import { MainPageTemplate } from '../components/templates/MainPage/MainPage'
 
 export const MainPage = () => {
   return <MainPageTemplate />
