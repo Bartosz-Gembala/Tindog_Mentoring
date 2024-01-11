@@ -15,7 +15,7 @@ export default {
         icon: "#FEFEDF",
       },
       fontFamily: {
-        sans: ["Open sans", "sans"],
+        sans: ["Roboto", "sans-serif"],
         logo: ["Dela Gothic One", "sans"],
       },
       extend: {

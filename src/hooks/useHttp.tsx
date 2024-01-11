@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { useAuthContext } from "../contexts/auth-context";
 
 export const useHttp = <T,>() => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
+
+  const { token } = useAuthContext();
 
   const sendRequest = (
     url: string,
@@ -10,7 +13,7 @@ export const useHttp = <T,>() => {
   ): Promise<T | undefined> => {
     setIsLoading(true);
 
-    return fetch(url, requestData)
+    return fetch(url, { ...requestData, headers: { token: token! } })
       .then((response) => {
         if (!response.ok) {
           setError(new Error("Something went wrong!"));
